@@ -1,11 +1,11 @@
-import Header from "@/components/header";
-import Hero from "@/components/hero";
+import Header from "@/components/shared/header";
+import Hero from "@/components/shared/hero";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Hero />   
+      <Hero />
     </>
   );
 }

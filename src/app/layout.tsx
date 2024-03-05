@@ -1,6 +1,7 @@
+import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from "next";
 import { Poppins as FontSans, Dancing_Script as FontSerif  } from "next/font/google";
-import { ThemeProvider } from "@/components/themeProvider";
+import { ThemeProvider } from "@/components/shared/themeProvider";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
@@ -27,21 +28,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={cn(
-          "min-h-screen bg-background font-sans antialiased flex items-center justify-center",
-          fontSans.variable,
-          DancingFont.variable,
-        )}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
-    </html>
+    <ClerkProvider>
+      <html lang="pt-BR">
+        <body className={cn(
+            "min-h-screen bg-background font-sans antialiased flex items-center justify-center",
+            fontSans.variable,
+            DancingFont.variable,
+          )}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </body>
+      </html>
+    </ClerkProvider>
   );
 }

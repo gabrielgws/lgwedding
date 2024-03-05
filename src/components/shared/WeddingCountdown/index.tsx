@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { Skeleton } from "../ui/skeleton";
+import { Skeleton } from "../../ui/skeleton";
 
 const targetTime = moment("2025-04-20");
 
@@ -32,7 +32,7 @@ export default function WeddingCountdown () {
   return (
     <div>
       {isClient ? (
-        <p className="text-xl">
+        <p className="text-sm md:text-xl">
           <span>{days} dias, </span>
           <span>{timeBetween.hours()} horas, </span>
           <span>{timeBetween.minutes()} minutos, </span>
